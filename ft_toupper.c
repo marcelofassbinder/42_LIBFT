@@ -16,9 +16,9 @@ int	ft_toupper(int c)
 		c = c - 32;
 	return (c);
 }
-/* #include <stdio.h>
+/*#include <stdio.h>
 
 int	main(void)
 {	
 	printf("%i\n", ft_toupper('a'));
-} */
+}*/
