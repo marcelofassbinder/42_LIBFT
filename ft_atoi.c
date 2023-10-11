@@ -6,7 +6,7 @@
 /*   By: mfassbin <mfassbin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 11:39:19 by mfassbin          #+#    #+#             */
-/*   Updated: 2023/10/10 22:22:25 by mfassbin         ###   ########.fr       */
+/*   Updated: 2023/10/10 22:30:16 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	ft_atoi(const char *str)
 		return (nbr);
 	return (-nbr);
 }
-/*#include <stdio.h>
+/* #include <stdio.h>
 #include <stdlib.h>
 
 int	main(void)
@@ -45,4 +45,5 @@ int	main(void)
 	
 	printf("meu atoi: %i\n", ft_atoi(s));
 	printf("funcao original: %i\n", atoi(s));
-} */
+}
+ */
