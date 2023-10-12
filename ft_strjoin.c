@@ -1,54 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfassbin <mfassbin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/11 15:05:21 by mfassbin          #+#    #+#             */
-/*   Updated: 2023/10/12 16:04:39 by mfassbin         ###   ########.fr       */
+/*   Created: 2023/09/11 18:23:11 by mfassbin          #+#    #+#             */
+/*   Updated: 2023/10/12 16:07:23 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcpy(char *dest, char *src)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int	i;
-
-	i = 0;
-	while (src[i] != '\0')
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
-}
-
-char	*ft_strdup(const char *src)
-{
-	char	*d;
-	char	*s;
+	char	*result;
+	int		i;
+	int		j;
 	int		size;
 
-	s = (char *)src;
-	size = ft_strlen(s) + 1;
-	d = (char *) malloc(sizeof(char) * size);
-	if (d == NULL)
+	size = ft_strlen(s1) + ft_strlen(s2) + 1;
+	result = (char *) malloc(sizeof(char) * size);
+	if (result == NULL)
 		return (NULL);
-	ft_strcpy(d, s);
-	return (d);
+	i = 0;
+	while (s1[i])
+	{
+		result[i] = s1[i];
+		i++;
+	}
+	j = 0;
+	while (s2[j])
+	{
+		result[i] = s2[j];
+		i++;
+		j++;
+	}
+	result[i] = '\0';
+	return (result);
 }
 /* 
 #include <stdio.h>
-#include <string.h>
 
 int	main(void)
 {
-	char s[] = "";
-	char s2[] = "";
+	char 	s1[] = "Gremio ";
+	char	s2[] = "campeao mundial";	
 
-	printf("minha funcao: %s\n", ft_strdup(s));
-	printf("funcao original: %s\n", strdup(s2));
+	printf("%s", ft_strjoin(s1, s2));
 } */
