@@ -6,7 +6,7 @@
 /*   By: mfassbin <mfassbin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 18:39:04 by mfassbin          #+#    #+#             */
-/*   Updated: 2023/10/12 20:51:43 by mfassbin         ###   ########.fr       */
+/*   Updated: 2023/10/13 16:48:25 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,29 +19,26 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*result;
 
 	result = NULL;
-	if(s1 && set)
+	if (s1 && set)
 	{
 		start = 0;
-		end = ft_strlen(s1) - start;
-		while (s1[start] && ft_strchr(s1, s1[start]))
+		end = ft_strlen(s1);
+		while (s1[start] && start < end && ft_strchr(set, s1[start]) != NULL)
 		{
 			start++;
 		}
-		while (s1[end -1] && ft_strchr(s1, s1[end - 1]))
+		while (s1[end -1] && start < end && ft_strchr(set, s1[end - 1]) != NULL)
 		{
 			end--;
 		}
-		result = (char *)malloc(sizeof(char)*(end - start + 1));
-		if (!result )
-			return(NULL);
-		result = ft_substr(result, start, end- start +1);
+		result = ft_substr(s1, start, end - start);
 	}
 	return (result);
 }
-
+/* 
 #include<stdio.h>
 
 int	main(void)
 {
-	printf("%s\n", ft_strtrim("MaceloMar", "Mar"));
-}
+	printf("%s\n", ft_strtrim("  \t \t \n   \n\n\n\t", " \n\t"));
+} */
