@@ -6,60 +6,80 @@
 /*   By: mfassbin <mfassbin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 19:01:29 by mfassbin          #+#    #+#             */
-/*   Updated: 2023/10/13 20:42:32 by mfassbin         ###   ########.fr       */
+/*   Updated: 2023/10/14 23:07:57 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	issep(const char *s, char c)
+static int	count_words(const char *s, char c)
 {
 	int	i;
-	int	n;
+	int	word;
 
 	i = 0;
-	n = 0;
+	word = 0;
 	while (s[i])
 	{
-		if (s[i] == c)
-			n++;
+		if ((s[i] != c) && (s[i + 1] == c || s[i + 1] == '\0'))
+			word++;
 		i++;
 	}
-	return (n);
+	return (word);
+}
+
+static int	next_word(char const *s, char c)
+{
+	int	i;
+
+	i = 0;
+	while (s[i] && s[i] != c)
+		i++;
+	return (i);
+}
+
+static char	**ft_free(char **s, unsigned int n)
+{
+	while (n--)
+		free(s[n]);
+	free(s[n]);
+	free(s);
+	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**result;
-	int		i;
 	int		j;
 	int		n;
 
-	n = issep(s, c);
-	result = malloc (sizeof(char *) * (n + 1));
-	i = 0;
+	n = count_words(s, c);
+	result = ft_calloc (sizeof(char *), n + 1);
+	if (!s || !result)
+		return (NULL);
 	j = 0;
-	while (j < n + 1)
+	while (j < n)
 	{
-		if (*s == c || *s == '\0')
+		if (*s != c)
 		{
-			result[j] = (char *)malloc(sizeof(char) * (i + 1));
-			ft_strlcpy(result[j], &s[i], i + 1);
+			result[j] = (char *)ft_calloc(sizeof(char), next_word(s, c) + 1);
+			if (!result[j])
+				return (ft_free(result, n));
+			ft_strlcpy(result[j], s, next_word(s, c) + 1);
+			s += next_word(s, c);
 			j++;
-			i = 0;
 		}
-		i++;
 		s++;
 	}
 	return (result);
 }
-
+/* 
 #include <stdio.h>
 
 int main(void)
 {
-	char s[] = "ola tudo bem?";
-	char **r = ft_split(s, ' ');
+	char s[] = "ola tudo bem ?";
+	char **r = ft_split("hello!", ' ');
 	
 	printf("%s", r[0]);
-}
+} */
