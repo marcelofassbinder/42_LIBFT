@@ -1,43 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfassbin <mfassbin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/15 17:09:24 by mfassbin          #+#    #+#             */
-/*   Updated: 2023/10/16 19:11:11 by mfassbin         ###   ########.fr       */
+/*   Created: 2023/10/16 19:19:51 by mfassbin          #+#    #+#             */
+/*   Updated: 2023/10/16 21:57:42 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* char	teste(unsigned int n, char c)
+/* void	teste(unsigned int n, char *s)
 {
-	c = n + '0';
-	return (c);
-} */
-
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+	if (*s)
+	s[n] = n + '0';
+}
+ */
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	char	*str;
-	int		i;
+	unsigned int	i;
+	char			*new;
 
-	str = ft_calloc(sizeof(char), ft_strlen(s) + 1);
-	if (!str)
-		return (NULL);
+	new = ft_strdup(s);
+	if (!new || !s || !f)
+		return;
 	i = 0;
-	while (s[i])
+	while (new[i])
 	{
-		str[i] = f(i, s[i]);
+		f(i, &new[i]);
 		i++;
 	}
-	str[i] = '\0';
-	return (str);
+	ft_strlcpy(s, new, ft_strlen(new) + 1);
 }
-/* #include <stdio.h>
+/* 
+#include <stdio.h>
 
 int main(void)
 {
-	printf("%s\n", ft_strmapi("marcelo", teste));
+	char s[] = "Marcelo";
+	printf("antes: %s\n", s);
+	ft_striteri(s, teste);
+	printf("depois: %s", s);
 } */

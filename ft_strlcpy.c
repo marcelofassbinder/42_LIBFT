@@ -6,7 +6,7 @@
 /*   By: mfassbin <mfassbin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 12:21:25 by mfassbin          #+#    #+#             */
-/*   Updated: 2023/10/10 13:02:13 by mfassbin         ###   ########.fr       */
+/*   Updated: 2023/10/16 20:35:13 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	main(void)
 	unsigned int	i;
 	unsigned int	j;
 
-	tam = 0;
+	tam = 6;
 	printf("origem = %s\ndestino = %s\n", origem, destino);
 	i = ft_strlcpy(destino, origem, tam);
 	printf("destino ft_strlcpy = %s\n", destino);
@@ -55,5 +55,4 @@ int	main(void)
 	j = strlcpy(destino2, origem2, tam);
 	printf("destino strlcpy = %s\n", destino2);
 	printf("retorno original = %u\n", j);
-} 
- */
+}  */
