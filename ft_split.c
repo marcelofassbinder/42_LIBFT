@@ -6,7 +6,7 @@
 /*   By: mfassbin <mfassbin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 19:01:29 by mfassbin          #+#    #+#             */
-/*   Updated: 2023/10/14 23:07:57 by mfassbin         ###   ########.fr       */
+/*   Updated: 2023/10/17 16:19:45 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,10 @@ static int	next_word(char const *s, char c)
 	return (i);
 }
 
-static char	**ft_free(char **s, unsigned int n)
+static char	**ft_free(char **s, int n)
 {
-	while (n--)
-		free(s[n]);
-	free(s[n]);
+	while (n >= 0)
+		free(s[n--]);
 	free(s);
 	return (NULL);
 }
@@ -64,7 +63,7 @@ char	**ft_split(char const *s, char c)
 		{
 			result[j] = (char *)ft_calloc(sizeof(char), next_word(s, c) + 1);
 			if (!result[j])
-				return (ft_free(result, n));
+				return (ft_free(result, j));
 			ft_strlcpy(result[j], s, next_word(s, c) + 1);
 			s += next_word(s, c);
 			j++;

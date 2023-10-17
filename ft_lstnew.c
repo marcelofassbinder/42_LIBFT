@@ -1,40 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfassbin <mfassbin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/16 19:19:51 by mfassbin          #+#    #+#             */
-/*   Updated: 2023/10/17 16:35:46 by mfassbin         ###   ########.fr       */
+/*   Created: 2023/10/17 19:16:53 by mfassbin          #+#    #+#             */
+/*   Updated: 2023/10/17 20:10:27 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* void	teste(unsigned int n, char *s)
+t_list	*ft_lstnew(void *content)
 {
-	*s = n + '0';
-}
- */
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
-{
-	unsigned int	i;
+	t_list	*new;
 
-	i = 0;
-	while (s[i])
-	{
-		f(i, &s[i]);
-		i++;
-	}
+	new = malloc(sizeof(t_list));
+	if (!new)
+		return (NULL);
+	new -> content = content;
+	new -> next = NULL;
+	return (new);
 }
 /* 
 #include <stdio.h>
 
 int main(void)
 {
-	char s[] = "Marcelo";
-	printf("antes: %s\n", s);
-	ft_striteri(s, teste);
-	printf("depois: %s", s);
+	t_list	*lista;
+	lista = malloc(sizeof(t_list));
+	lista->content = "abc";
+	lista ->next = NULL;
+	printf("%s\n", (char *)lista->content);
+	lista = ft_lstnew("Marcelo");
+	printf("%s", (char *)lista->content);
 } */
