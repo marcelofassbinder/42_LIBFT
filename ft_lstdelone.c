@@ -1,35 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfassbin <mfassbin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 15:24:14 by mfassbin          #+#    #+#             */
-/*   Updated: 2023/10/18 16:18:12 by mfassbin         ###   ########.fr       */
+/*   Created: 2023/10/19 14:29:54 by mfassbin          #+#    #+#             */
+/*   Updated: 2023/10/19 15:57:45 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-t_list	*ft_lstlast(t_list *lst)
+/* 
+void ft_delete(void *list)
 {
-	if (!lst)
-		return (NULL);
-	while (lst->next != NULL)
-		lst = lst->next;
-	return (lst);
+	t_list	*a;
+
+	a = (t_list *)list;
+	a->content = NULL;
+} */
+
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
+{
+	del(lst->content);
+	free(lst);
 }
 /* 
-#include <stdio.h>
+#include<stdio.h>
 
 int main(void)
 {
-	t_list *no;
+	t_list *list;
 
-	no = ft_lstnew("no1");
-	no->next = ft_lstnew("no2");
-	no->next->next = ft_lstnew("no3");
-	no->next->next->next = ft_lstnew("no4");
-	printf("o content do ultimo no eh: %s", (char *)ft_lstlast(no)->content);
+	list = ft_lstnew("conteudo que vai ser apagado");
+	printf("%s\n", (char *)list->content);
+	ft_lstdelone(list, ft_delete);
+	printf("%s\n", (char *)list->content);
 } */

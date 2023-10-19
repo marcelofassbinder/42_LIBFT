@@ -6,7 +6,7 @@
 /*   By: mfassbin <mfassbin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 12:27:35 by mfassbin          #+#    #+#             */
-/*   Updated: 2023/10/10 12:42:26 by mfassbin         ###   ########.fr       */
+/*   Updated: 2023/10/19 13:57:59 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 
 int	main(void)
 {
-    char dest1[] = "";
-    char dest2[] = "";
-    char src1[] = "";
-    char src2[] = "";
-	size_t	n = 0;
+    char dest1[] = "marcelo";
+    char dest2[] = "marcelo";
+    char src1[] = "vini";
+    char src2[] = "vini";
+	size_t	n = 1;
 
 	printf("minha funcao: %s\n", (char *)ft_memcpy(dest1, src1, n));
 	printf("funcao original: %s\n", (char *)memcpy(dest2, src2, n));

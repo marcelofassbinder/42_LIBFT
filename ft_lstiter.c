@@ -1,35 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfassbin <mfassbin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 15:24:14 by mfassbin          #+#    #+#             */
-/*   Updated: 2023/10/18 16:18:12 by mfassbin         ###   ########.fr       */
+/*   Created: 2023/10/19 17:27:40 by mfassbin          #+#    #+#             */
+/*   Updated: 2023/10/19 19:51:13 by mfassbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+/* void	ft_iterate(void *ptr)
 {
-	if (!lst)
-		return (NULL);
-	while (lst->next != NULL)
-		lst = lst->next;
-	return (lst);
+	(char *)ptr = "42";
 }
-/* 
-#include <stdio.h>
+ */
+void	ft_lstiter(t_list *lst, void (*f)(void *))
+{
+	while (lst != NULL)
+	{
+		f(lst->content);
+		lst = lst->next;
+	}
+}
+/*
+#include <stdio.h> 
 
 int main(void)
 {
-	t_list *no;
+	t_list	*lista;
 
-	no = ft_lstnew("no1");
-	no->next = ft_lstnew("no2");
-	no->next->next = ft_lstnew("no3");
-	no->next->next->next = ft_lstnew("no4");
-	printf("o content do ultimo no eh: %s", (char *)ft_lstlast(no)->content);
+	lista = ft_lstnew("67");
+	lista->next = ft_lstnew("85");
+	lista->next->next = ft_lstnew("22");
+	printf("%s\n", (char *)lista->content);
+	ft_lstiter(lista, &ft_iterate);
+	printf("%s\n", (char *)lista->content);
 } */
