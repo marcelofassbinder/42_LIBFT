@@ -14,4 +14,14 @@ Libft includes a variety of functions, each one crafted to provide a solid under
 - **Data Conversion Functions**: `ft_atoi`, `ft_itoa`.
 - **List Manipulation Functions (Bonus)**: `ft_lstnew`, `ft_lstadd_front`, `ft_lstsize`, etc.
 
-  
+# Norminette
+At 42 School, we need to follow some strict rules when writing our code. These rules are described in the Norm and checked by the formidable `norminette`. Here are some of them:
+```
+- No for, do...while, switch, case, goto, ternary operators and variable-length arrays are allowed
+- Each function must be maximum 25 lines
+- One single variable declaration per line
+- You can’t declare more than 5 variables per function
+- You can't write more thane 5 functions per file
+...
+```
+[Click here](https://github.com/42School/norminette/blob/master/pdf/en.norm.pdf) to review the complete Norm document.
