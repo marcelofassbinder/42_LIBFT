@@ -16,7 +16,7 @@ Libft includes a variety of functions, each one crafted to provide a solid under
 
 # Grade  <p><img height="30px" src="https://img.shields.io/badge/-125%20%2F%20100-success" /></p>
 
-# Norminette 🪖
+# Norminette 💂🏻
 At 42 School, we need to follow some strict rules when writing our code. These rules are described in the Norm and checked by the formidable `norminette`. Here are some of them:
 ```
 - No for, do...while, switch, case, goto, ternary operators and variable-length arrays are allowed
