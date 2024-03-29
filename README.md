@@ -1,5 +1,12 @@
-# 42_LIBFT 📚
+<h1 align=center>
+  42_LIBFT 📚
+</h1>
+
+<div align=center>
+  
 My very first own library and the first 42 Common Core project!
+
+</div>
 
 # About ✍
 Libft aims at creating a custom C library with essential functions that will be invaluable for future projects in the 42 Common Core curriculum. This library is designed to provide you with a solid foundation of fundamental functions commonly used in C language. In the journey of becoming a proficient C programmer, understanding the inner workings of basic functions is crucial. Libft not only serves as a compilation of essential functions but also offers you the opportunity to recreate these functions from scratch. This process enhanced my understanding of data structures, algorithmic thinking, and the intricacies of C programming.
